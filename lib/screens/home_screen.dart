@@ -42,21 +42,21 @@ class HomeScreen extends StatelessWidget {
                         subtitle: '7pcs, Price',
                         price: '\$4.99',
                         color: const Color(0xFFFFF3D6),
-                        image: 'assets/banana.png',
+                        image: 'assets/banana.jpg',
                       ),
                       _ProductData(
                         name: 'Red Apple',
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFFFE0E0),
-                        image: 'assets/redapple.png',
+                        image: 'assets/redapples.jpg',
                       ),
                       _ProductData(
                         name: 'Green Apple',
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFE0F5E0),
-                        image: 'assets/greenapple.png',
+                        image: 'assets/greenapples.jpg',
                       ),
                     ]),
 
@@ -73,21 +73,21 @@ class HomeScreen extends StatelessWidget {
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFFFE0E0),
-                        image: 'assets/strawberry.png',
+                        image: 'assets/strawberry.jpg',
                       ),
                       _ProductData(
                         name: 'Fresh Herbs',
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFE0F5E0),
-                        image: 'assets/herbs.png',
+                        image: 'assets/herbs.jpg',
                       ),
                       _ProductData(
                         name: 'Fresh Vegetables',
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFE0F5E0),
-                        image: 'assets/vegetables.png',
+                        image: 'assets/vegetables.jpg',
                       ),
                     ]),
 
@@ -108,21 +108,21 @@ class HomeScreen extends StatelessWidget {
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFFFE0E0),
-                        image: 'assets/beef.png',
+                        image: 'assets/beef.jpg',
                       ),
                       _ProductData(
                         name: 'Broiler Chicken',
                         subtitle: '1kg, Price',
                         price: '\$4.99',
                         color: const Color(0xFFFFF3D6),
-                        image: 'assets/chicken.png',
+                        image: 'assets/chicken.jpg',
                       ),
                       _ProductData(
                         name: 'Chicken Breast',
                         subtitle: '1kg, Price',
                         price: '\$5.99',
                         color: const Color(0xFFFFE0E0),
-                        image: 'assets/chicken2.png',
+                        image: 'assets/chicken2.jpg',
                       ),
                     ]),
 
@@ -398,16 +398,18 @@ class _ProductCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 70,
-            width: double.infinity,
-            decoration: BoxDecoration(
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Container(
+              height: 70,
+              width: double.infinity,
               color: data.color,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Image.asset(
-              data.image,
-              fit: BoxFit.contain,
+              child: Image.asset(
+                data.image,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
             ),
           ),
 

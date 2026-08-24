@@ -61,14 +61,15 @@ flutter:
   assets:
     - assets/carrot.png
     - assets/whitecarrot.png
-    - assets/banana.png
-    - assets/strawberry.png
-    - assets/redapple.png
-    - assets/greenapple.png
-    - assets/vegetables.png
-    - assets/herbs.png
-    - assets/beef.png
-    - assets/chicken.png
+    - assets/banana.jpg
+    - assets/strawberry.jpg
+    - assets/redapples.jpg
+    - assets/greenapples.jpg
+    - assets/vegetables.jpg
+    - assets/herbs.jpg
+    - assets/beef.jpg
+    - assets/chicken.jpg
+    - assets/chicken2.jpg
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
