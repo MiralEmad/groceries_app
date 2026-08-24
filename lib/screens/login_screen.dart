@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/actionbutton.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -114,27 +115,12 @@ class LoginScreen extends StatelessWidget {
              SizedBox(
               height: 30,
              ),
-             InkWell(
-              onTap: () {
-                
-              },
-               child: Center(
-                 child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(19),
-                    color: Color(0xff53B175),
-                  ),
-                  height: 67,
-                  width: 364,
-                  
-                  child: Center(child: Text('Login' , style: TextStyle(
-                    color: Color(0xffFFF9FF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),)),
-                 ),
-               ),
-             ),
+                PrimaryActionButton(
+                 label: 'Login',
+                 onPressed: () {
+                 Navigator.pushReplacementNamed(context, '/home');
+                 },
+                ),
              SizedBox(
                 height: 25,
                ),
@@ -147,11 +133,16 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight(600),
                  
                     ),),
-                    Text('Signup', style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight(600),
-                      color: Color(0xff53B175),
-                    ),)
+                    InkWell(
+                      onTap: () {
+                       Navigator.pushNamed(context, '/signup');
+                      },
+                      child: Text('Signup', style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight(600),
+                        color: Color(0xff53B175),
+                      ),),
+                    )
                   ],
                  ),
                 ]

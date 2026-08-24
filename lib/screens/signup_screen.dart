@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/actionbutton.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -164,47 +165,43 @@ class SignupScreen extends StatelessWidget {
                  height: 30,
                 ),
 
-                InkWell(
-              onTap: () {
-                
-              },
-               child: Center(
-                 child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(19),
-                    color: Color(0xff53B175),
-                  ),
-                  height: 67,
-                  width: 364,
-                  
-                  child: Center(child: Text('Sign Up' , style: TextStyle(
-                    color: Color(0xffFFF9FF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),)),
-                 ),
-               ),
-             ),
+                PrimaryActionButton(
+                 label: 'Sign Up',
+                 onPressed: () {
+                 Navigator.pushReplacementNamed(context, '/home');
+                },
+                ),
              SizedBox(
                 height: 25,
                ),
 
               Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Already have an account?', style: TextStyle(
-                      color: Color(0xff181725),
-                      fontSize: 14,
-                      fontWeight: FontWeight(600),
-                 
-                    ),),
-                    Text('login', style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight(600),
-                      color: Color(0xff53B175),
-                    ),)
-                  ],
-                 ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+              Text(
+                'Already have an account?',
+                 style: TextStyle(
+                 color: Color(0xff181725),
+                 fontSize: 14,
+                 fontWeight: FontWeight.w600,
+                ),
+              ),
+
+              InkWell(
+                onTap: () {
+                Navigator.pushReplacementNamed(context, '/login');
+                },
+                child: Text(
+                ' login',
+                style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff53B175),
+              ),
+           ),
+        ),
+       ],
+       ),
           ],
           ),
         ),
