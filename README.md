@@ -54,3 +54,23 @@ lib/
 
 assets/
 └── product images
+
+## 📱 Screenshots
+
+### Splash Screen
+![Splash Screen](screenshots/splash.png)
+
+### Onboarding Screen
+![Onboarding Screen](screenshots/onboarding.png)
+
+### Login Screen
+![Login Screen](screenshots/login.png)
+
+### Signup Screen
+![Signup Screen](screenshots/signup.png)
+
+### Home Screen
+![Home Screen](screenshots/home.png)
+
+### Search Screen
+![Search Screen](screenshots/search.png)
