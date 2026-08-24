@@ -36,25 +36,6 @@ This project focuses mainly on building the application's UI and implementing na
 - Android Emulator
 - Git & GitHub
 
-## 📂 Project Structure
-
-```text
-lib/
-├── components/
-│   ├── actionbutton.dart
-│   └── addbutton.dart
-│
-├── screens/
-│   ├── home_screen.dart
-│   ├── search_screen.dart
-│   ├── account_screen.dart
-│   └── ...
-│
-└── main.dart
-
-assets/
-└── product images
-
 ## 📱 Screenshots
 
 ### Splash Screen
@@ -74,3 +55,25 @@ assets/
 
 ### Search Screen
 ![Search Screen](screenshots/search.png)
+
+
+## 📂 Project Structure
+
+```text
+lib/
+├── components/
+│   ├── actionbutton.dart
+│   └── addbutton.dart
+│
+├── screens/
+│   ├── home_screen.dart
+│   ├── search_screen.dart
+│   ├── account_screen.dart
+│   └── ...
+│
+└── main.dart
+
+assets/
+└── product images
+
+
