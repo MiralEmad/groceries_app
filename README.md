@@ -54,7 +54,7 @@ This project focuses mainly on building the application's UI and implementing na
 ![Home Screen](screenshots/home.png)
 
 ### Search Screen
-![Search Screen](screenshots/search.png)
+![Search Screen](screenshots/search.jpg)
 
 ### Find Product Screen
 ![Find Product Screen](screenshots/find_product.jpg)
