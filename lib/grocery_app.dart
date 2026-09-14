@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:login/screens/account_screen.dart';
 import 'package:login/screens/beverages_screen.dart';
-import 'package:login/screens/checkOut_screen.dart';
+import 'package:login/screens/explore_screen.dart';
 import 'package:login/screens/favourites_screen.dart';
+import 'package:login/screens/filters_screen.dart';
 import 'package:login/screens/home_screen.dart';
 import 'package:login/screens/login_screen.dart';
+import 'package:login/screens/mycart_screen.dart';
 import 'package:login/screens/onboarding_screen.dart';
 import 'package:login/screens/orderAccepted_screen.dart';
+import 'package:login/screens/productdetail_screen.dart';
 import 'package:login/screens/search_screen.dart';
 import 'package:login/screens/signup_screen.dart';
 import 'package:login/screens/splash_screen.dart';
@@ -19,7 +22,7 @@ class GroceryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home : HomeScreen(),
+      home : FiltersScreen(),
     );
     
 }

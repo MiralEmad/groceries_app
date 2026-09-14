@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import '../components/addbutton.dart';
+import '../widgets/add_button.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -13,18 +14,48 @@ class _SearchScreenState extends State<SearchScreen> {
       TextEditingController(text: 'Egg');
 
   static final List<_ProductData> _results = [
-    _ProductData('Egg Chicken Red', '4pcs, Price', '\$1.99',
-        const Color(0xFFFCE9D6), Icons.egg),
-    _ProductData('Egg Chicken White', '180g, Price', '\$1.50',
-        const Color(0xFFFCEFD0), Icons.egg),
-    _ProductData('Egg Pasta', '30gm, Price', '\$15.99',
-        const Color(0xFFF7D9D9), Icons.ramen_dining),
-    _ProductData('Egg Noodles', '2L, Price', '\$15.99',
-        const Color(0xFFF7D9D9), Icons.ramen_dining),
-    _ProductData('Mayonnais Eggless', '400g, Price', '\$4.99',
-        const Color(0xFFFCEFD0), Icons.icecream),
-    _ProductData('Egg Noodles', '250g, Price', '\$4.99',
-        const Color(0xFFE9DDF7), Icons.ramen_dining),
+    _ProductData(
+      'Egg Chicken Red',
+      '4pcs, Price',
+      '\$1.99',
+      const Color(0xFFFCE9D6),
+      'assets/red_egg.png',
+    ),
+    _ProductData(
+      'Egg Chicken White',
+      '180g, Price',
+      '\$1.50',
+      const Color(0xFFFCEFD0),
+      'assets/white_egg.png',
+    ),
+    _ProductData(
+      'Egg Pasta',
+      '30gm, Price',
+      '\$15.99',
+      const Color(0xFFF7D9D9),
+      'assets/pasta.png',
+    ),
+    _ProductData(
+      'Egg Noodles',
+      '2L, Price',
+      '\$15.99',
+      const Color(0xFFF7D9D9),
+      'assets/nodles.png',
+    ),
+    _ProductData(
+      'Mayonnais Eggless',
+      '400g, Price',
+      '\$4.99',
+      const Color(0xFFFCEFD0),
+      'assets/mayonnais.png',
+    ),
+    _ProductData(
+      'Egg Noodles',
+      '250g, Price',
+      '\$4.99',
+      const Color(0xFFE9DDF7),
+      'assets/egg_nodles.png',
+    ),
   ];
 
   @override
@@ -48,7 +79,8 @@ class _SearchScreenState extends State<SearchScreen> {
               child: GridView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 itemCount: _results.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 14,
                   crossAxisSpacing: 14,
@@ -89,7 +121,11 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.close, size: 18, color: Colors.grey),
+            icon: const Icon(
+              Icons.close,
+              size: 18,
+              color: Colors.grey,
+            ),
             onPressed: () => setState(() => _controller.clear()),
           ),
           const Icon(Icons.tune, color: Colors.grey),
@@ -104,10 +140,15 @@ class _ProductData {
   final String subtitle;
   final String price;
   final Color color;
-  final IconData icon;
+  final String image;
 
   _ProductData(
-      this.name, this.subtitle, this.price, this.color, this.icon);
+    this.name,
+    this.subtitle,
+    this.price,
+    this.color,
+    this.image,
+  );
 }
 
 class _ProductCard extends StatelessWidget {
@@ -119,47 +160,81 @@ class _ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade200),
+        color: Colors.white,
+        border: Border.all(
+          color: Colors.grey.shade200,
+        ),
         borderRadius: BorderRadius.circular(14),
       ),
       padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Image
           Container(
-            height: 80,
+            height: 110,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: data.color,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(data.icon, size: 40, color: Colors.black54),
+            child: Center(
+              child: Image.asset(
+                data.image,
+                width: 100,
+                height: 100,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.image_not_supported_outlined,
+                    color: Colors.grey,
+                    size: 30,
+                  );
+                },
+              ),
+            ),
           ),
+
           const SizedBox(height: 8),
+
+          // Product name
           Text(
             data.name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 13,
+            ),
           ),
+
+          // Subtitle
           Text(
             data.subtitle,
-            style: TextStyle(color: Colors.grey.shade600, fontSize: 11),
+            style: TextStyle(
+              color: Colors.grey.shade600,
+              fontSize: 11,
+            ),
           ),
+
           const Spacer(),
+
+          // Price + Add Button
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 data.price,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               AddButton(
-               size: 36,
-               onTap: () {
-               print('${data.name} added');
-               },
-),
+                size: 36,
+                onTap: () {
+                  print('${data.name} added');
+                },
+              ),
             ],
           ),
         ],
@@ -171,7 +246,9 @@ class _ProductCard extends StatelessWidget {
 class _BottomNavBar extends StatelessWidget {
   final int currentIndex;
 
-  const _BottomNavBar({required this.currentIndex});
+  const _BottomNavBar({
+    required this.currentIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -186,25 +263,40 @@ class _BottomNavBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: Colors.grey.shade200)),
+        border: Border(
+          top: BorderSide(
+            color: Colors.grey.shade200,
+          ),
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(items.length, (index) {
-          final selected = index == currentIndex;
-          final color = selected ? Colors.green : Colors.grey;
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(items[index].icon, color: color, size: 22),
-              const SizedBox(height: 2),
-              Text(
-                items[index].label,
-                style: TextStyle(color: color, fontSize: 11),
-              ),
-            ],
-          );
-        }),
+        children: List.generate(
+          items.length,
+          (index) {
+            final selected = index == currentIndex;
+            final color = selected ? Colors.green : Colors.grey;
+
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  items[index].icon,
+                  color: color,
+                  size: 22,
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  items[index].label,
+                  style: TextStyle(
+                    color: color,
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -214,6 +306,11 @@ class _NavItemData {
   final IconData icon;
   final String label;
 
-  _NavItemData(this.icon, this.label);
+  _NavItemData(
+    this.icon,
+    this.label,
+  );
 }
+
+
 

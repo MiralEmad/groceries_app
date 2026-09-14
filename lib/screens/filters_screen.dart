@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import '../components/actionbutton.dart';
+import '../widgets/action_button.dart';
 
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key});
@@ -10,18 +11,24 @@ class FiltersScreen extends StatefulWidget {
 
 class _FiltersScreenState extends State<FiltersScreen> {
   final List<String> _categories = [
-    'Fruits & Vegetable',
-    'Meat & Fish',
-    'Bakery & Snacks',
-    'Beverages',
-    'Dairy & Eggs',
+    'Eggs',
+    'Noodles & pasta',
+    'Chips & Crisps',
+    'Fast Food',
   ];
-  final Set<String> _selectedCategories = {'Fruits & Vegetable'};
 
-  final List<String> _brands = ['Nestle', 'Organic Valley', 'Kellogg\'s'];
-  final Set<String> _selectedBrands = {};
+  final Set<String> _selectedCategories = {'Eggs'};
 
-  RangeValues _priceRange = const RangeValues(20, 300);
+  final List<String> _brands = [
+    'Individual callection',
+    'Cocacola',
+    'Ifad',
+    'Kazi Farmas',
+  ];
+
+  final Set<String> _selectedBrands = {'Cocacola'};
+
+  RangeValues _priceRange = const RangeValues(40, 300);
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +38,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         child: Column(
           children: [
             _buildTopBar(context),
+
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -38,12 +46,19 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildSectionTitle('Categories'),
+
                     ..._categories.map(_buildCategoryCheckbox),
-                    const SizedBox(height: 12),
+
+                    const SizedBox(height: 16),
+
                     _buildSectionTitle('Brand'),
+
                     ..._brands.map(_buildBrandCheckbox),
+
                     const SizedBox(height: 12),
+
                     _buildSectionTitle('Price'),
+
                     RangeSlider(
                       values: _priceRange,
                       min: 0,
@@ -57,12 +72,15 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onChanged: (values) =>
                           setState(() => _priceRange = values),
                     ),
+
                     const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
+
             _buildApplyButton(),
+
             const SizedBox(height: 12),
           ],
         ),
@@ -71,18 +89,28 @@ class _FiltersScreenState extends State<FiltersScreen> {
   }
 
   Widget _buildTopBar(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return SizedBox(
+      height: 60,
+      width: double.infinity,
+      child: Stack(
         children: [
-          const Text(
-            'Filters',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          const Center(
+            child: Text(
+              'Filters',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+              ),
+            ),
           ),
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () => Navigator.maybePop(context),
+
+          Positioned(
+            left: 12,
+            top: 6,
+            child: IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () => Navigator.maybePop(context),
+            ),
           ),
         ],
       ),
@@ -91,16 +119,20 @@ class _FiltersScreenState extends State<FiltersScreen> {
 
   Widget _buildSectionTitle(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Text(
         title,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
       ),
     );
   }
 
   Widget _buildCategoryCheckbox(String category) {
     final selected = _selectedCategories.contains(category);
+
     return InkWell(
       onTap: () => setState(() {
         selected
@@ -108,15 +140,25 @@ class _FiltersScreenState extends State<FiltersScreen> {
             : _selectedCategories.add(category);
       }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
             Icon(
-              selected ? Icons.check_box : Icons.check_box_outline_blank,
+              selected
+                  ? Icons.check_box
+                  : Icons.check_box_outline_blank,
               color: selected ? Colors.green : Colors.grey,
+              size: 24,
             ),
-            const SizedBox(width: 10),
-            Text(category),
+
+            const SizedBox(width: 12),
+
+            Text(
+              category,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+            ),
           ],
         ),
       ),
@@ -125,20 +167,33 @@ class _FiltersScreenState extends State<FiltersScreen> {
 
   Widget _buildBrandCheckbox(String brand) {
     final selected = _selectedBrands.contains(brand);
+
     return InkWell(
       onTap: () => setState(() {
-        selected ? _selectedBrands.remove(brand) : _selectedBrands.add(brand);
+        selected
+            ? _selectedBrands.remove(brand)
+            : _selectedBrands.add(brand);
       }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
             Icon(
-              selected ? Icons.check_box : Icons.check_box_outline_blank,
+              selected
+                  ? Icons.check_box
+                  : Icons.check_box_outline_blank,
               color: selected ? Colors.green : Colors.grey,
+              size: 24,
             ),
-            const SizedBox(width: 10),
-            Text(brand),
+
+            const SizedBox(width: 12),
+
+            Text(
+              brand,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+            ),
           ],
         ),
       ),
@@ -146,13 +201,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
   }
 
   Widget _buildApplyButton() {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 20),
-    child: PrimaryActionButton(
-      label: 'Apply Filter',
-      onPressed: () {},
-    ),
-  );
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: PrimaryActionButton(
+        label: 'Apply Filter',
+        onPressed: () {},
+      ),
+    );
+  }
 }
-}
+
+
+
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/actionbutton.dart';
+import '../widgets/action_button.dart';
 /// Product Detail Screen
 /// Shows a large product image, name, price, quantity stepper,
 /// expandable product detail / nutrition / review sections and
@@ -83,7 +83,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           ),
           const Text(
             'Product Detail',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
           ),
           IconButton(
             icon: const Icon(Icons.share_outlined),
@@ -102,7 +102,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         color: const Color(0xFFFFF0F0),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const Icon(Icons.apple, size: 100, color: Colors.redAccent),
+      child: Image.asset('assets/redapples.jpg'),
     );
   }
 

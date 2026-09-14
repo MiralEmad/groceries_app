@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/actionbutton.dart';
+import '../widgets/action_button.dart';
 
 /// Order Accepted Screen
 /// Success confirmation shown after an order has been placed, with

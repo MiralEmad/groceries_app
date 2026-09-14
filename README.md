@@ -56,7 +56,6 @@ This project focuses mainly on building the application's UI and implementing na
 ### Search Screen
 ![Search Screen](screenshots/search.png)
 
-
 ## 📂 Project Structure
 
 ```text
@@ -75,5 +74,3 @@ lib/
 
 assets/
 └── product images
-
-

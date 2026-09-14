@@ -33,7 +33,7 @@ class ErrorScreen extends StatelessWidget {
               const Text(
                 'Oops! Order Failed',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               Text(
@@ -48,14 +48,14 @@ class ErrorScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color(0xff53B175),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
                   ),
                   child: const Text(
                     'Try Again',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600 , color: Color(0xffFFF9FF)),
                   ),
                 ),
               ),
@@ -64,7 +64,7 @@ class ErrorScreen extends StatelessWidget {
                 onPressed: () {},
                 child: const Text(
                   'Back to Home',
-                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.w600 , fontSize: 18),
                 ),
               ),
             ],
