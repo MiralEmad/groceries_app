@@ -56,6 +56,37 @@ This project focuses mainly on building the application's UI and implementing na
 ### Search Screen
 ![Search Screen](screenshots/search.png)
 
+### Favourites Screen
+![Favourites Screen](screenshots/favourites.jpg)
+
+### My Cart Screen
+![My Cart Screen](screenshots/My_cart.jpg)
+
+### Checkout Screen
+![Checkout Screen](screenshots/checkout.jpg)
+
+### Account Screen
+![Account Screen](screenshots/account.jpg)
+
+### Find Product Screen
+![Find Product Screen](screenshots/find_product.jpg)
+
+### Filters Screen
+![Filters Screen](screenshots/filters.jpg)
+
+### Product Details Screen
+![Product Details Screen](screenshots/product_details.jpg)
+
+### Beverages Screen
+![Beverages Screen](screenshots/beverages.jpg)
+
+### Order Accepted Screen
+![Order Accepted Screen](screenshots/order_accepted.jpg)
+
+### Order Failed Screen
+![Order Failed Screen](screenshots/order_failed.jpg)
+
+
 ## 📂 Project Structure
 
 ```text
